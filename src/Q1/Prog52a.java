@@ -22,3 +22,10 @@ public class Prog52a {
         input.close();
     }
 }
+
+/*
+Enter length: 5
+Enter width: 10
+Area: 50
+Perimeter: 30
+*/

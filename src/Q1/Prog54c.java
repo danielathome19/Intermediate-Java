@@ -22,3 +22,9 @@ public class Prog54c {
         input.close();
     }
 }
+
+/*
+Enter radius: 3.712
+Area: 43.288
+Circumference: 23.323
+*/
