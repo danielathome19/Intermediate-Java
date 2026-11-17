@@ -38,4 +38,57 @@ public class SortingAlgorithms {
     public static <T extends Comparable<T>> void shellSort(T[] arr) {
         // TODO
     }
+
+
+    /* ========== Merge Sort ========== */
+    public static <T extends Comparable<T>> void mergeSort(T[] arr) {
+        // TODO (hint: use Arrays.copyOfRange to get an array slice)
+    }
+
+    public static <T extends Comparable<T>> void merge(T[] arr, T[] l, T[] r) {
+        // TODO
+    }
+
+
+    /* ========== Quicksort ========== */
+    public static <T extends Comparable<T>> void quickSort(T[] arr) {
+        quickSort(arr, 0, arr.length-1);
+    }
+
+    public static <T extends Comparable<T>> void quickSort(T[] arr, int low, int high) {
+        if (low < high) {
+            int pivot = partition(arr, low, high);
+            quickSort(arr, low, pivot-1);
+            quickSort(arr, pivot+1, high);
+        }
+    }
+
+    public static <T extends Comparable<T>> int partition(T[] arr, int low, int high) {
+        // Generate pivot - random element
+        int pivotIndex = low + (int)(Math.random() * (high - low + 1));
+        T pivot = arr[pivotIndex];
+        int partitionIndex = low - 1;
+
+        for (int k = low; k <= high; k++)
+            if (arr[k].compareTo(pivot) <= 0)
+                partitionIndex++;
+        
+        swap(arr, pivotIndex, partitionIndex);
+
+        int i = low, j = high;
+
+        while (i < j) {
+            if (arr[i].compareTo(pivot) <= 0) {
+                i++;
+            } else if (arr[j].compareTo(pivot) > 0) {
+                j--;
+            } else {
+                swap(arr, i, j);
+                i++;
+                j--;
+            }
+        }
+
+        return partitionIndex;
+    }
 }
